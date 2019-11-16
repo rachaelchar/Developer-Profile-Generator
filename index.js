@@ -6,6 +6,8 @@ const questions = [
 
 ];
 
+let url = `https://api.github.com/users/${username}`
+
 function writeToFile(fileName, data) {
  
 }
