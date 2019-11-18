@@ -14,22 +14,25 @@ inquirer
         type: "list",
         name: "color",
         message: "What is your favorite color?",
-        choices:["red", "blue", "green", "yellow"]
+        choices:["green", "blue", "pink", "red"]
     },
-
     ])
-    .then(function (answers){
-        console.log(answers);
-    }
-    );
+    .then(function ({username}){
+        const url = `https://api.github.com/users/${username}`;
+
+        axios.get(url).then(function(response) {
+            console.log(response.data);
+        });
+        
+    });
 
 
-// const url = `https://api.github.com/users/${username}`
 
-function writeToFile(fileName, data) {
+
+// function writeToFile(fileName, data) {
  
-}
+// }
 
-function init() {}
+// function init() {}
 
-init();
+// init();
