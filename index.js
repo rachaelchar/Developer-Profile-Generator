@@ -23,7 +23,8 @@ inquirer
     }
     );
 
-let url = `https://api.github.com/users/${username}`
+
+// const url = `https://api.github.com/users/${username}`
 
 function writeToFile(fileName, data) {
  
