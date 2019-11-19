@@ -34,6 +34,8 @@ promptUser()
     axios.get(url).then(function (response) {
         console.log(response.data);
     })
+
+
   })
   .catch(function(err) {
     console.log(err);
