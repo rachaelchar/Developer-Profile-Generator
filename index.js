@@ -31,17 +31,14 @@ promptUser()
   .then(function(username) {
     const url = `https://api.github.com/users/${username}`;
 
-    axios.get(url).then(function (response) {
+    return axios.get(url).then(function (response) {
         console.log(response.data);
     })
 
-
   })
   .catch(function(err) {
-    console.log(err);
+    console.log("catch", err);
   });
-
-
 
 
 
