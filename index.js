@@ -9,34 +9,37 @@ const questions = [];
 // const writeFileAsync = util.promisify(fs.writeFile);
 
 function promptUser() {
-    return inquirer
-        .prompt([{
-            type: "input",
-            name: "username",
-            message: "What is your Github username?"
-        },
-        {
-            type: "list",
-            name: "color",
-            message: "What is your favorite color?",
-            choices: ["green", "blue", "pink", "red"]
-        },
-        ]);
+  return inquirer
+    .prompt([{
+      type: "input",
+      name: "username",
+      message: "What is your Github username?"
+    },
+    {
+      type: "list",
+      name: "color",
+      message: "What is your favorite color?",
+      choices: ["green", "blue", "pink", "red"]
+    },
+    ]);
 }
 
 promptUser()
-  .then(function(answers) {
+  .then(function (answers) {
     console.log(answers);
+    return answers;
   })
-  .then(function(username) {
+  .then(function(answers){
+    const { username } = answers;
     const url = `https://api.github.com/users/${username}`;
 
-    return axios.get(url).then(function (response) {
-        console.log(response.data);
-    })
+    axios.get(url).then(function (response) {
+      console.log(response.data);
+    });
 
+    return answers;
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.log("catch", err);
   });
 
