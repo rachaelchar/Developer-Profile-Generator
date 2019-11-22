@@ -44,12 +44,12 @@ function generateHTML(data) {
                       src="${data.avatar_url}">
               </div>
               <h1>${data.name}</h1>
-              <h2>${data.username}</h2>
-              <h4>${data.company}</h4>
+              <h2>${data.login}</h2>
+              <h4>${data.company ? data.company : " "}</h4>
               <div class="links-nav">
-                  <a href="#" class="nav-link">Location</a>
-                  <a href="${data.url}" class="nav-link">Github</a>
-                  <a href="${data.location}" class="nav-link">Blog</a>
+                  <a href="https://www.google.com/maps/place/${data.location}" class="nav-link">${data.location}</a>
+                  <a href="${data.html_url}" class="nav-link">GitHub</a>
+                  <a href="${data.blog}" class="nav-link">Blog</a>
               </div>
           </div>
           <main>
