@@ -3,7 +3,7 @@ const axios = require("axios");
 const fs = require("fs");
 const generateHTML = require("./generateHTML.js");
 const pdf = require('html-pdf');
-
+const open = require('open');
 
 function promptUser() {
   return inquirer
@@ -64,9 +64,11 @@ function writeToFile(html){
   pdf.create(html, options).toFile('./profile.pdf', function(err, res) {
     if (err) return console.log(err);
     console.log(res);
+    
+    open("profile.pdf");
+    console.log("Successfully wrote to index.html");
   });
 
-  console.log("Successfully wrote to index.html");
 };
 
 
