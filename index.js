@@ -1,13 +1,9 @@
 const inquirer = require("inquirer");
 const axios = require("axios");
-const util = require("util");
 const fs = require("fs");
 const generateHTML = require("./generateHTML.js");
+const pdf = require('html-pdf');
 
-
-const questions = [];
-
-// const writeFileAsync = util.promisify(fs.writeFile);
 
 function promptUser() {
   return inquirer
@@ -37,19 +33,19 @@ promptUser()
     const { color } = answers;
 
     axios.get(url).then(function (response) {
-      // console.log(response.data);
-      console.log(response.data);
       console.log(color);
 
       const data = {
         color: color,
         ...response.data
       }
+
       console.log(data);
+      // console.log(colors[data.color].wrapperBackground)
 
-      // const html = generateHTML(response.data);
+      const html = generateHTML(data);
 
-      // return writeToFile("index.html", html); 
+      return writeToFile(html); 
 
     });
 
@@ -61,9 +57,14 @@ promptUser()
 
 
 
-function writeToFile(){
+function writeToFile(html){
 
-  if (err) throw err;
+  const options = { format: 'Letter' };
+ 
+  pdf.create(html, options).toFile('./profile.pdf', function(err, res) {
+    if (err) return console.log(err);
+    console.log(res);
+  });
 
   console.log("Successfully wrote to index.html");
 };
