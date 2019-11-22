@@ -1,40 +1,60 @@
-const colors = {
-  green: {
-    wrapperBackground: "#E6E1C3",
-    headerBackground: "#C1C72C",
-    headerColor: "black",
-    photoBorderColor: "#black"
-  },
-  blue: {
-    wrapperBackground: "#5F64D3",
-    headerBackground: "#26175A",
-    headerColor: "white",
-    photoBorderColor: "#73448C"
-  },
-  pink: {
-    wrapperBackground: "#879CDF",
-    headerBackground: "#FF8374",
-    headerColor: "white",
-    photoBorderColor: "#FEE24C"
-  },
-  red: {
-    wrapperBackground: "#DE9967",
-    headerBackground: "#870603",
-    headerColor: "white",
-    photoBorderColor: "white"
-  }
-};
+
 
 function generateHTML(data) {
   return `<!DOCTYPE html>
-<html lang="en">
-   <head>
+  <html lang="en">
+
+  <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
       <title>Portfolio</title>
+  <body>
+      <div class="wrapper">
+          <div class="photo-header">
+              <div class="row">
+                  <img
+                      src="${data.avatar_url}">
+              </div>
+              <h1>${data.name}</h1>
+              <h2>${data.username}</h2>
+              <h4>${data.company}</h4>
+              <div class="links-nav">
+                  <a href="#" class="nav-link">Location</a>
+                  <a href="${data.url}" class="nav-link">Github</a>
+                  <a href="${data.location}" class="nav-link">Blog</a>
+              </div>
+          </div>
+          <main>
+              <div class="container">
+                  <h4 style="text-align: center;">${data.bio}</h4>
+                  <div class="row">
+                      <div class="col">
+                          <div class="card">
+                              <h4>Public Repositories</h4>
+                              <h5>${data.public_repos}</h5>
+                          </div>
+                          <div class="card">
+                              <h4>GitHub Stars</h4>
+                              <h5>${data.public_gists}</h5>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card">
+                              <h4>Followers</h4>
+                              <h5>${data.followers}</h5>
+                          </div>
+                          <div class="card">
+                              <h4>Following</h4>
+                              <h5>${data.following}</h5>
+                          </div>
+                      </div>
+                  </div>
+          </main>
+      </div>
+  </body>
       <style>
           @page {
             margin: 0;
@@ -83,6 +103,7 @@ function generateHTML(data) {
          }
          h5 {
          font-size: 1.3em;
+         text-align: center;
          }
          h6 {
          font-size: 1.2em;
@@ -171,4 +192,5 @@ function generateHTML(data) {
           } 
          }
       </style>`
-        }
+}
+module.exports = generateHTML;
