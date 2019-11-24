@@ -39,12 +39,11 @@ function generateHTML(data) {
   <body>
       <div class="wrapper">
           <div class="photo-header">
-              <div class="row">
-                  <img
-                      src="${data.avatar_url}">
+              <div class="row" style="margin-left: 30%">
+                  <img src="${data.avatar_url}">
               </div>
               <h1>${data.name}</h1>
-              <h2>${data.login}</h2>
+              <h3>GitHub: ${data.login}</h3>
               <h4>${data.company ? data.company : " "}</h4>
               <div class="links-nav">
                   <a href="https://www.google.com/maps/place/${data.location}" class="nav-link">${data.location}</a>
@@ -98,7 +97,7 @@ function generateHTML(data) {
          }
          .wrapper {
          background-color: ${colors[data.color].wrapperBackground};
-         padding-top: 100px;
+         padding-top: 75px;
          }
          body {
          background-color: white;
@@ -122,6 +121,7 @@ function generateHTML(data) {
          }
          h3 {
          font-size: 2em;
+         text-align: center;
          }
          h4 {
          font-size: 1.5em;
@@ -193,11 +193,11 @@ function generateHTML(data) {
          }
 
          .card {
-           padding: 20px;
+           padding: 10px;
            border-radius: 6px;
            background-color: ${colors[data.color].headerBackground};
            color: ${colors[data.color].headerColor};
-           margin: 20px;
+           margin: 10px;
          }
          
          .col {
