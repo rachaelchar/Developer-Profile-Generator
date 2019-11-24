@@ -41,7 +41,6 @@ promptUser()
       }
 
       console.log(data);
-      // console.log(colors[data.color].wrapperBackground)
 
       const html = generateHTML(data);
 
@@ -59,14 +58,16 @@ promptUser()
 
 function writeToFile(html){
 
-  const options = { format: 'Letter' };
+  const options = { 
+    zoomFactor: .75
+   };
  
   pdf.create(html, options).toFile('./profile.pdf', function(err, res) {
     if (err) return console.log(err);
     console.log(res);
     
     open("profile.pdf");
-    console.log("Successfully wrote to index.html");
+    console.log("Success!");
   });
 
 };
