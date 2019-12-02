@@ -17,8 +17,11 @@ SO THAT I can easily prepare reports for stakeholders
 4. Select a color to customize the them of the generated resume
 5. The resume will open automatically upon creation
 
+## Demo
+![Example PDF](/info/demo.gif)
 
-
+## Example PDF
+![Example PDF](/info/example-pdf.png)
 
 ### API's Referenced
 * GitHub API
