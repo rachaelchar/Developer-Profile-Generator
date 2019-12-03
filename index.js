@@ -23,7 +23,6 @@ function promptUser() {
 
 promptUser()
   .then(function (answers) {
-    console.log(answers);
     return answers;
   })
   .then(function (answers) {
@@ -33,14 +32,12 @@ promptUser()
     const { color } = answers;
 
     axios.get(url).then(function (response) {
-      console.log(color);
 
       const data = {
         color: color,
         ...response.data
       }
 
-      console.log(data);
 
       const html = generateHTML(data);
 
